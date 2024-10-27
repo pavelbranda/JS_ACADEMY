@@ -65,3 +65,11 @@ discount(1250, 30)
 
 
 
+//  function naCeskeKoruny(cislo) {
+//     let koruny = cislo.toLocalString("cs-CZ",
+//         style: "currency",
+//         currency: "CZK"
+//     )};
+
+
+
