@@ -23,29 +23,26 @@ function calculateTotalPrice(no_of_prod, price_per_prod) {
 }
 
 // pomocná FCE pro formatovani do czk
-function FormatPrice(price) {
-  return price.toLocaleString("cs-CZ", {
-    style: "currency",
-    currency: "CZK"
-  });
-}
+function FormatPrice(price, currency="czk") {
+  if (currency === undefined) {
+    return price.toLocaleString("cs-CZ", {
+      style: "currency",
+      currency: "CZK",
+    });
+  } else if (currency === "usd") {
+    return price.toLocaleString("en-US", {
+      style: "currency",
+      currency: "USD"
+    });
+  } else if (currency === "eur") {
+    return price.toLocaleString("en-GB", {
+      style: "currency",
+      currency: "EUR"
+    });
+  }
+};
 
 
-
-//   if (currency === undefined) {
-//     price.toLocalString("cs-CZ",
-//     style: "currency",
-//     currency: "CZK",
-//   )} else if (currency == "usd") {
-//     price.toLocalString("en-US",
-//       style: "currency",
-//       currency: "USD"
-//   )}
-// }
-  
-  
-  
-  
 //   let result = price.toFixed(2);
 //   result = result.replace('.', ',');
 //   return result + ' Kč';
@@ -79,7 +76,7 @@ let b = prompt("Please, enter the second number: ");
 console.log(plus(a,b))
 
 // calculateTotalPrice() & FormatPrice
-console.log (calculateTotalPrice(2, 800));
+console.log (calculateTotalPrice(2, 800, "eur"));
 
 // discount()
 discount(1250, 30)
