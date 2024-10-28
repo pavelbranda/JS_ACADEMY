@@ -10,26 +10,46 @@ function greeting(name, insult) {
 // vytvoř FCI plus ( ), která dostane dva argumenty
 // pošli do FCE plus ( ) hodnoty získané přes prompt ( )
 function plus(a,b) {
-  a = Number(a);
+  a = Number(a); 
   b = Number(b);
   return (a + b);
 }
- 
-// pomocná FCE pro formatovani do czk
-function numToSum(no_of_prod, result) {
-  result = result.toFixed(2);
-  result = result.replace('.', ',');
-  result = result + ' Kč';
-  
-  console.log('Koupil jsi ' + no_of_prod + ' předmětů dohromady za ' + result);
-  }
 
 // udělej FCI, která dostane 2 argumenty: počet produktů a cenu jednoho 
-function calculation(no_of_prod, price_per_prod) {   
-  let total = no_of_prod * price_per_prod;
-  return { total: total, no_of_prod: no_of_prod };  // Return both values - by returning an object
+function calculateTotalPrice(no_of_prod, price_per_prod) {
+  let totalPrice = no_of_prod * price_per_prod;
+  let formattedPrice = FormatPrice(totalPrice);   
+  return 'Koupil jsi ' + no_of_prod + ' předmětů dohromady za ' + formattedPrice;
 }
 
+// pomocná FCE pro formatovani do czk
+function FormatPrice(price) {
+  return price.toLocaleString("cs-CZ", {
+    style: "currency",
+    currency: "CZK"
+  });
+}
+
+
+
+//   if (currency === undefined) {
+//     price.toLocalString("cs-CZ",
+//     style: "currency",
+//     currency: "CZK",
+//   )} else if (currency == "usd") {
+//     price.toLocalString("en-US",
+//       style: "currency",
+//       currency: "USD"
+//   )}
+// }
+  
+  
+  
+  
+//   let result = price.toFixed(2);
+//   result = result.replace('.', ',');
+//   return result + ' Kč';
+// }
 
 // vyrobit FCI discount ( ) , která vypočítá slevu
 function discount (price, discount) {
@@ -47,20 +67,21 @@ function discount (price, discount) {
 //
 // HLAVNÍ PROGRAM
 //
+
+// greeting()
 let inputName = prompt("Please enter a name of somebody you hate:");
 greeting(inputName, "hlupák")
 
+// plus(a,b)
 let a = prompt("Please, enter the first number: ");
 let b = prompt("Please, enter the second number: ");
 // prompty jsem vytáhnul ven z funkce!
-
 console.log(plus(a,b))
 
-numToSum(no_of_prod, result)
+// calculateTotalPrice() & FormatPrice
+console.log (calculateTotalPrice(2, 800));
 
-// let no_of_prod = 2;
-let result = calculation(2, 15);
-
+// discount()
 discount(1250, 30)
 
 
@@ -68,8 +89,9 @@ discount(1250, 30)
 //  function naCeskeKoruny(cislo) {
 //     let koruny = cislo.toLocalString("cs-CZ",
 //         style: "currency",
-//         currency: "CZK"
+//         currency: "CZK",
 //     )};
 
 
-
+// TO-DO:
+// 1.Testing (e.g. plus(10,5), plus(2.5, 8.3), plus(400,200);
