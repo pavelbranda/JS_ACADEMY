@@ -45,13 +45,17 @@ function formatPrice(price, currency="czk") {
 // vyrobit FCI discount ( ) , která vypočítá slevu
 function discount (price, discount) {
   discount = price / 100 * discount;
-  let final_price = price - discount;
+  let finalPrice = price - discount;
 
-  price = price + ' Kč';
-  discount = discount + ' Kč';
-  final_price = final_price + ' Kč';
+  price = price.toLocaleString("cs-CZ", {style: "currency", currency: "CZK"});
+  discount = discount.toLocaleString("cs-CZ", {style: "currency", currency: "CZK"});
+  finalPrice = finalPrice.toLocaleString("cs-CZ", {style: "currency", currency: "CZK"});
+
+  // price = price + ' Kč';
+  // discount = discount + ' Kč';
+  // final_price = final_price + ' Kč';
   
-  console.log('Cena je ' + price + ', sleva je ' + discount + ', cena po slevě je ' + final_price + '.');
+  console.log('Cena je ' + price + ', sleva je ' + discount + ', cena po slevě je ' + finalPrice + '.');
 }
 
 
