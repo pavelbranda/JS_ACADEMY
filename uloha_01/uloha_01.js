@@ -16,15 +16,15 @@ function plus(a,b) {
 }
 
 // udělej FCI, která dostane 2 argumenty: počet produktů a cenu jednoho 
-function calculateTotalPrice(no_of_prod, price_per_prod) {
+function calculateTotalPrice(no_of_prod, price_per_prod, currency = "czk") {
   let totalPrice = no_of_prod * price_per_prod;
-  let formattedPrice = FormatPrice(totalPrice);   
+  let formattedPrice = formatPrice(totalPrice);   
   return 'Koupil jsi ' + no_of_prod + ' předmětů dohromady za ' + formattedPrice;
 }
 
 // pomocná FCE pro formatovani do czk
-function FormatPrice(price, currency="czk") {
-  if (currency === undefined) {
+function formatPrice(price, currency="czk") {
+  if (currency === "czk") {
     return price.toLocaleString("cs-CZ", {
       style: "currency",
       currency: "CZK",
@@ -76,7 +76,7 @@ let b = prompt("Please, enter the second number: ");
 console.log(plus(a,b))
 
 // calculateTotalPrice() & FormatPrice
-console.log (calculateTotalPrice(2, 800, "eur"));
+console.log (calculateTotalPrice(2, 800, "usd"));
 
 // discount()
 discount(1250, 30)
