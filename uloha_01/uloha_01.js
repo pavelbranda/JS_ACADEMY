@@ -18,7 +18,7 @@ function plus(a,b) {
 // udělej FCI, která dostane 2 argumenty: počet produktů a cenu jednoho 
 function calculateTotalPrice(no_of_prod, price_per_prod, currency = "czk") {
   let totalPrice = no_of_prod * price_per_prod;
-  let formattedPrice = formatPrice(totalPrice);   
+  let formattedPrice = formatPrice(totalPrice, currency);   
   return 'Koupil jsi ' + no_of_prod + ' předmětů dohromady za ' + formattedPrice;
 }
 
@@ -35,18 +35,12 @@ function formatPrice(price, currency="czk") {
       currency: "USD"
     });
   } else if (currency === "eur") {
-    return price.toLocaleString("en-GB", {
+    return price.toLocaleString("de-DE", {
       style: "currency",
       currency: "EUR"
     });
   }
 };
-
-
-//   let result = price.toFixed(2);
-//   result = result.replace('.', ',');
-//   return result + ' Kč';
-// }
 
 // vyrobit FCI discount ( ) , která vypočítá slevu
 function discount (price, discount) {
@@ -76,18 +70,10 @@ let b = prompt("Please, enter the second number: ");
 console.log(plus(a,b))
 
 // calculateTotalPrice() & FormatPrice
-console.log (calculateTotalPrice(2, 800, "usd"));
+console.log (calculateTotalPrice(2, 800, "eur"));
 
 // discount()
 discount(1250, 30)
-
-
-
-//  function naCeskeKoruny(cislo) {
-//     let koruny = cislo.toLocalString("cs-CZ",
-//         style: "currency",
-//         currency: "CZK",
-//     )};
 
 
 // TO-DO:
