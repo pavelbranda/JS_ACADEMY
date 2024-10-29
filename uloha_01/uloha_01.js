@@ -1,21 +1,21 @@
-// vyrob FCI pozdrav ( )
-// uprav FCI pozdrav ( ), tak aby prijimala dva argumenty - jmeno a urazka
+// a)vyrob FCI pozdrav ( )
+// b)uprav FCI pozdrav ( ), tak aby prijimala dva argumenty - jmeno a urazka
 
 
-// získej jméno přes prompt( )
+// c)získej jméno přes prompt( )
 function greeting(name, insult) {
   console.log('Ahoj ' + name + ', ty ' + insult + '!');
 }
 
-// vytvoř FCI plus ( ), která dostane dva argumenty
-// pošli do FCE plus ( ) hodnoty získané přes prompt ( )
+// d)vytvoř FCI plus ( ), která dostane dva argumenty
+// e)pošli do FCE plus ( ) hodnoty získané přes prompt ( )
 function plus(a,b) {
   a = Number(a); 
   b = Number(b);
   return (a + b);
 }
 
-// udělej FCI, která dostane 2 argumenty: počet produktů a cenu jednoho 
+// f)udělej FCI, která dostane 2 argumenty: počet produktů a cenu jednoho 
 function calculateTotalPrice(no_of_prod, price_per_prod, currency = "czk") {
   let totalPrice = no_of_prod * price_per_prod;
   let formattedPrice = formatPrice(totalPrice, currency);   
@@ -42,7 +42,8 @@ function formatPrice(price, currency="czk") {
   }
 };
 
-// vyrobit FCI discount ( ) , která vypočítá slevu
+// g)vyrobit FCI discount () , která vypočítá slevu
+// h)uprav funkci formatPrice ()
 function discount (price, discount) {
   discount = price / 100 * discount;
   let finalPrice = price - discount;
@@ -50,10 +51,6 @@ function discount (price, discount) {
   price = price.toLocaleString("cs-CZ", {style: "currency", currency: "CZK"});
   discount = discount.toLocaleString("cs-CZ", {style: "currency", currency: "CZK"});
   finalPrice = finalPrice.toLocaleString("cs-CZ", {style: "currency", currency: "CZK"});
-
-  // price = price + ' Kč';
-  // discount = discount + ' Kč';
-  // final_price = final_price + ' Kč';
   
   console.log('Cena je ' + price + ', sleva je ' + discount + ', cena po slevě je ' + finalPrice + '.');
 }
@@ -74,7 +71,7 @@ let b = prompt("Please, enter the second number: ");
 console.log(plus(a,b))
 
 // calculateTotalPrice() & FormatPrice
-console.log (calculateTotalPrice(2, 800, "eur"));
+console.log (calculateTotalPrice(2, 850, "eur"));
 
 // discount()
 discount(1250, 30)
