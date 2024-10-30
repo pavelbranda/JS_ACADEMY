@@ -10,6 +10,11 @@ function greeting(name, insult) {
 function plus(a,b) {
   a = Number(a); 
   b = Number(b);
+
+  if (isNaN(a) || isNaN(b)) {
+    return "Error: Please enter valid numbers.";
+  }
+  
   return (a + b);
 }
 
@@ -43,14 +48,14 @@ function formatPrice(price, currency="czk") {
 // g)vyrobit FCI discount () , která vypočítá slevu
 // h)uprav funkci formatPrice (), bude přijíamt další arument (currency) - hodnoty "eur", "usd"
 function discount (price, discount) {
-  discountAmount = price / 100 * discount;
-  let finalPrice = price - discount;
+  let discountAmount = price * (discount / 100);
+  let finalPrice = price - discountAmount;
 
   price = price.toLocaleString("cs-CZ", {style: "currency", currency: "CZK"});
   discountAmount = discountAmount.toLocaleString("cs-CZ", {style: "currency", currency: "CZK"});
   finalPrice = finalPrice.toLocaleString("cs-CZ", {style: "currency", currency: "CZK"});
   
-  console.log('Cena je ' + price + ', sleva je ' + discount + ', cena po slevě je ' + finalPrice + '.');
+  console.log('Cena je ' + price + ', sleva je ' + discountAmount + ', cena po slevě je ' + finalPrice + '.');
 }
 
 
