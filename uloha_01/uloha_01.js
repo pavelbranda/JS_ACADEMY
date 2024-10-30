@@ -14,7 +14,7 @@ function plus(a,b) {
   if (isNaN(a) || isNaN(b)) {
     return "Error: Please enter valid numbers.";
   }
-  
+
   return (a + b);
 }
 
@@ -22,6 +22,7 @@ function plus(a,b) {
 function calculateTotalPrice(no_of_prod, price_per_prod, currency = "czk") {
   let totalPrice = no_of_prod * price_per_prod;
   let formattedPrice = formatPrice(totalPrice, currency);   
+
   return 'Koupil jsi ' + no_of_prod + ' předmětů dohromady za ' + formattedPrice;
 }
 
@@ -79,7 +80,3 @@ console.log (calculateTotalPrice(2, 850, "eur"));
 
 // discount()
 discount(1250, 30)
-
-
-// TO-DO:
-// 1.Testing (e.g. plus(10,5), plus(2.5, 8.3), plus(400,200);
