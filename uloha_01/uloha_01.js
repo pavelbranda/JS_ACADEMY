@@ -1,7 +1,5 @@
 // a)vyrob FCI pozdrav ( )
 // b)uprav FCI pozdrav ( ), tak aby prijimala dva argumenty - jmeno a urazka
-
-
 // c)získej jméno přes prompt( )
 function greeting(name, insult) {
   console.log('Ahoj ' + name + ', ty ' + insult + '!');
@@ -43,13 +41,13 @@ function formatPrice(price, currency="czk") {
 };
 
 // g)vyrobit FCI discount () , která vypočítá slevu
-// h)uprav funkci formatPrice ()
+// h)uprav funkci formatPrice (), bude přijíamt další arument (currency) - hodnoty "eur", "usd"
 function discount (price, discount) {
-  discount = price / 100 * discount;
+  discountAmount = price / 100 * discount;
   let finalPrice = price - discount;
 
   price = price.toLocaleString("cs-CZ", {style: "currency", currency: "CZK"});
-  discount = discount.toLocaleString("cs-CZ", {style: "currency", currency: "CZK"});
+  discountAmount = discountAmount.toLocaleString("cs-CZ", {style: "currency", currency: "CZK"});
   finalPrice = finalPrice.toLocaleString("cs-CZ", {style: "currency", currency: "CZK"});
   
   console.log('Cena je ' + price + ', sleva je ' + discount + ', cena po slevě je ' + finalPrice + '.');
@@ -59,6 +57,7 @@ function discount (price, discount) {
 //
 // HLAVNÍ PROGRAM
 //
+
 
 // greeting()
 let inputName = prompt("Please enter a name of somebody you hate:");
